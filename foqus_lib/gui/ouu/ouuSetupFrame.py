@@ -408,6 +408,7 @@ class ouuSetupFrame(_ouuSetupFrame, _ouuSetupFrameUI):
         self.outputs_table.setColumnCount(2)
         self.outputs_table.setRowCount(len(outputNames))
         self.useAsConstraint = [False] * len(outputNames)
+        self.useAsDerivative = [False] * len(outputNames)
         for r in xrange(len(outputNames)):
             # radio = QRadioButton()
             # if r == 0:
@@ -613,6 +614,7 @@ class ouuSetupFrame(_ouuSetupFrame, _ouuSetupFrameUI):
 
         if 'inputPoints' in self.__dict__:
             self.inputPoints = [[] for i in xrange(len(self.inputPoints))]
+            print len(self.inputPoints)
             for i in xrange(1, len(self.inputPoints)):
                 if len(self.inputPlots[i - 1]['ax'].lines) > 0:
                     self.inputPlots[i - 1]['ax'].lines = []
